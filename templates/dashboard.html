@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+    <div class="mb-6 flex justify-between items-center">
+        <h2 class="text-2xl font-bold text-gray-900">Shipment Dashboard</h2>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+            <i class="fas fa-plus mr-2"></i> New Shipment
+        </button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white p-4 rounded-lg shadow">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Active Shipments</p>
+                    <p class="text-2xl font-semibold text-gray-900" id="active-shipments">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Completed</p>
+                    <p class="text-2xl font-semibold text-gray-900" id="completed-shipments">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-yellow-100 text-yellow-600 mr-4">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Alerts</p>
+                    <p class="text-2xl font-semibold text-gray-900" id="active-alerts">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-red-100 text-red-600 mr-4">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Tamper Events</p>
+                    <p class="text-2xl font-semibold text-gray-900" id="tamper-events">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map and Charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <!-- Map -->
+        <div class="lg:col-span-2 bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-medium text-gray-900 mb-4">Live Shipment Locations</h3>
+            <div id="map" class="h-96 rounded-md"></div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-medium text-gray-900 mb-4">Recent Alerts</h3>
+            <div class="space-y-4" id="alerts-list">
+                <!-- Alerts will be populated here -->
+                <div class="p-3 border-l-4 border-red-500 bg-red-50">
+                    <div class="flex justify-between">
+                        <p class="text-sm font-medium text-red-800">Tamper Detected</p>
+                        <span class="text-xs text-red-600">10 min ago</span>
+                    </div>
+                    <p class="text-xs text-red-600 mt-1">Shipment #12345</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shipment List -->
+    <div class="bg-white shadow rounded-lg overflow-hidden">
+        <div class="px-4 py-5 sm:px-6 border-b border-gray-200">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">Active Shipments</h3>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tracking ID</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Update</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200" id="shipments-table">
+                    <!-- Shipments will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize map
+    const map = L.map('map').setView([20, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Sample marker
+    L.marker([51.505, -0.09]).addTo(map)
+        .bindPopup('Shipment #12345<br>Status: In Transit')
+        .openPopup();
+</script>
+{% endblock %}
