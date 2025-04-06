@@ -1,0 +1,54 @@
+# Python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.egg-info/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+venv/
+env/
+
+# Development files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test and build artifacts
+.coverage
+htmlcov/
+.pytest_cache/
+dist/
+build/
+
+# Log files
+*.log
+logs/
+
+# Database files
+*.sqlite3
+*.db
+
+# Static files
+staticfiles/
+media/
+
+# Documentation
+docs/
+*.md
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project specific
+local_settings.py
+celerybeat-schedule
