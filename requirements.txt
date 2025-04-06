@@ -1,0 +1,17 @@
+django==4.2
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
+google-cloud-iot==2.7.0
+google-cloud-pubsub==2.13.11
+google-cloud-aiplatform==1.25.0
+google-cloud-functions==1.12.0
+firebase-admin==6.2.0
+pyfcm==1.5.1  # For advanced Firebase Cloud Messaging features
+web3==6.4.0
+python-dotenv==1.0.0
+psycopg2-binary==2.9.6
+django-ratelimit==3.0.1
+celery==5.2.7
+channels==4.0.0
+channels-redis==4.1.0
+redis==4.5.4
