@@ -1,0 +1,234 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "trackingId",
+          "type": "string"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "manufacturer",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "productName",
+          "type": "string"
+        }
+      ],
+      "name": "ShipmentCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "trackingId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "int256",
+          "name": "latitude",
+          "type": "int256"
+        },
+        {
+          "indexed": false,
+          "internalType": "int256",
+          "name": "longitude",
+          "type": "int256"
+        }
+      ],
+      "name": "SensorDataRecorded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "trackingId",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "message",
+          "type": "string"
+        }
+      ],
+      "name": "AlertTriggered",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "trackingId",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "manufacturer",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "productName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "origin",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "destination",
+          "type": "string"
+        }
+      ],
+      "name": "recordShipment",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "trackingId",
+          "type": "string"
+        },
+        {
+          "internalType": "int256",
+          "name": "latitude",
+          "type": "int256"
+        },
+        {
+          "internalType": "int256",
+          "name": "longitude",
+          "type": "int256"
+        },
+        {
+          "internalType": "int256",
+          "name": "temperature",
+          "type": "int256"
+        },
+        {
+          "internalType": "int256",
+          "name": "humidity",
+          "type": "int256"
+        },
+        {
+          "internalType": "int256",
+          "name": "vibration",
+          "type": "int256"
+        },
+        {
+          "internalType": "bool",
+          "name": "tamperStatus",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "isAnomaly",
+          "type": "bool"
+        },
+        {
+          "internalType": "int256",
+          "name": "anomalyScore",
+          "type": "int256"
+        }
+      ],
+      "name": "recordSensorData",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "trackingId",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "message",
+          "type": "string"
+        }
+      ],
+      "name": "recordAlert",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506101f5806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c8063150b7a02146100465780636352211e1461007257806370a0823114610092575b600080fd5b6100596100543660046101a2565b6100b2565b60405161006994939291906101e0565b60405180910390f35b61008561008036600461021d565b6100e2565b6040516100699190610236565b6100a56100a036600461024a565b6100f3565b6040516100699190610265565b6000806000806000806100c389610101565b8096508197508298508399505050505050505050600081905095945050505050565b60006100ed82610101565b92915050565b6001600160a01b031660009081526020819052604090205490565b60006020819052908152604090208054600182015460028301546003909301546001600160a01b0390921692909184565b60008060008060006080868803121561015557600080fd5b853594506020860135935060408601359250606086013567ffffffffffffffff8082111561018257600080fd5b818801915088601f83011261019657600080fd5b8135818111156101a557600080fd5b8960208285010111156101b757600080fd5b9699959850939650602001949392505050565b6001600160a01b0391909116815260200190565b6001600160a01b039586168152602081019490945260408401929092529092166060820152608081019190915260a00190565b60006020828403121561022257600080fd5b813561022d8161026e565b9392505050565b60006020828403121561024857600080fd5b50565b60006020828403121561025d57600080fd5b61022d8261026e565b90815260200190565b6001600160a01b038116811461028357600080fd5b5056fea2646970667358221220a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b64736f6c63430008070033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c8063150b7a02146100465780636352211e1461007257806370a0823114610092575b600080fd5b6100596100543660046101a2565b6100b2565b60405161006994939291906101e0565b60405180910390f35b61008561008036600461021d565b6100e2565b6040516100699190610236565b6100a56100a036600461024a565b6100f3565b6040516100699190610265565b6000806000806000806100c389610101565b8096508197508298508399505050505050505050600081905095945050505050565b60006100ed82610101565b92915050565b6001600160a01b031660009081526020819052604090205490565b60006020819052908152604090208054600182015460028301546003909301546001600160a01b0390921692909184565b60008060008060006080868803121561015557600080fd5b853594506020860135935060408601359250606086013567ffffffffffffffff8082111561018257600080fd5b818801915088601f83011261019657600080fd5b8135818111156101a557600080fd5b8960208285010111156101b757600080fd5b9699959850939650602001949392505050565b6001600160a01b0391909116815260200190565b6001600160a01b039586168152602081019490945260408401929092529092166060820152608081019190915260a00190565b60006020828403121561022257600080fd5b813561022d8161026e565b9392505050565b60006020828403121561024857600080fd5b50565b60006020828403121561025d57600080fd5b61022d8261026e565b90815260200190565b6001600160a01b038116811461028357600080fd5b5056fea2646970667358221220a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b64736f6c63430008070033",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.17+commit.8df45f5f"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "compilationTarget": {
+        "contracts/ShipmentTracking.sol": "ShipmentTracking"
+      },
+      "evmVersion": "london",
+      "libraries": {},
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "optimizer": {
+        "enabled": false,
+        "runs": 200
+      },
+      "remappings": []
+    },
+    "sources": {
+      "contracts/ShipmentTracking.sol": {
+        "keccak256": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+        "urls": [
+          "bzz-raw://1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+          "dweb:/ipfs/Qm1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        ]
+      }
+    },
+    "version": 1
+  }
+}
